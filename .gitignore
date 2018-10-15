@@ -1,0 +1,8 @@
+# All log files
+*.log
+
+# Secret data like API keys
+.env
+
+# Optional npm cache directory
+.npm

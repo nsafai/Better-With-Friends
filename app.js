@@ -1,3 +1,9 @@
+// hide some sensitive data
+require('dotenv').config();
+const MONGODB_URI = process.env.MONGODB_URI;
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -37,5 +43,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Database setup
+const mongoose = require('mongoose');
+const mongoURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${MONGODB_URI}`
+mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 module.exports = app;
