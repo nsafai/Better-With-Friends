@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 // Users new
 router.get('/new', (req, res, next) => {
   res.render('users/new');
-})
+});
 
 // Users create
 router.post('/', (req, res, next) => {
@@ -26,6 +26,6 @@ router.post('/', (req, res, next) => {
     if(err) console.log(err);
     return res.redirect('/users');
   });
-})
+});
 
 module.exports = router;
