@@ -3,6 +3,7 @@ require('dotenv').config();
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
+const SESSION_CODE = process.env.SESSION_CODE;
 
 var createError = require('http-errors');
 var express = require('express');
@@ -10,10 +11,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// configure sessions
+const session = require('express-session');
+app.use(session({ secret: '${SESSION_CODE}', cookie: { maxAge: 3600000 }, resave: true, saveUninitialized: true }));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

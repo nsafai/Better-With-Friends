@@ -24,13 +24,13 @@
     </div> -->
     <ul class="nav navbar-nav navbar-right">
       <div class="nav-links">
-        {{# if username}}
-          <li><a href="/dashboard" class="btn btn-success">Dashboard</a></li>
+        {{# if user}}
+          <!-- <li><a href="/dashboard" class="btn btn-success">Dashboard</a></li> -->
           <li><a href="/logout" class="btn btn-link">Logout</a></li>
-          {{else}}
-            <li><a href="/signup" class="btn btn-info">Sign Up</a></li>
-            <li><a href="/login" class="btn btn-secondary">Login</a></li>
-            {{/if}}
+        {{else}}
+          <li><a href="/signup" class="btn btn-info">Sign Up</a></li>
+          <li><a href="/login" class="btn btn-light">Login</a></li>
+        {{/if}}
       </div>
     </ul>
   </nav>

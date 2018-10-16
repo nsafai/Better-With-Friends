@@ -40,6 +40,14 @@ a {
   margin-left: 1em;
 }
 
+.btn-link {
+  color: #f1f2f6;
+}
+
+.btn-link:hover {
+  color: #f1f2f6;
+}
+
 /***************
      HERO
 ***************/
