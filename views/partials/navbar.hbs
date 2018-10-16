@@ -1,0 +1,20 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="navbar-brand">
+    <a href="./">Event Starter</a>
+  </div>
+
+  <!-- <div class="navbar-text">
+    log in/log out
+  </div> -->
+  <ul class="nav navbar-nav navbar-right">
+    <div class="nav-links">
+      {{# if user}}
+        <!-- <li><a href="/dashboard" class="btn btn-success">Dashboard</a></li> -->
+        <li><a href="/logout" class="btn btn-link">Log Out</a></li>
+      {{else}}
+        <li><a href="/signup" class="btn btn-outline-info">Sign Up</a></li>
+        <li><a href="/login" class="btn btn-link">Log In</a></li>
+      {{/if}}
+    </div>
+  </ul>
+</nav>

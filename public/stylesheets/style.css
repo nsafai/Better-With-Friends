@@ -70,10 +70,14 @@ a {
     CTA DIV
 **************/
 .cta-div {
-  margin-top:3em;
+  margin-top:5em;
   display:flex;
   justify-content: center;
   margin-bottom:12em;
+}
+
+.btn-lg {
+  padding: 0.75rem 2rem;
 }
 
 /*************

@@ -23,7 +23,11 @@ app.use(session({ secret: '${SESSION_CODE}', cookie: { maxAge: 3600000 }, resave
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const exphbs = require('express-handlebars');
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: 'hbs'
+}));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
