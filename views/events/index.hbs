@@ -1,11 +1,26 @@
 <h1>List of Events</h1>
 
-<div>
-  <ul>
-    {{#each events as |event|}}
-      <li>
-        <a href="/events/{{event.id}}">{{event.eventName}}</a> | <a href="/events/{{event.id}}/edit">edit</a>
-      </li>
-    {{/each}}
-  </ul>
-<div>
+
+<div class="card-deck">
+  {{#each events as |event|}}
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card" style="width: 20rem;">
+          <a href="/events/{{event.id}}" target="_blank">
+            <img class="card-img-top" src="{{event.coverImageUrl}}" alt="Card image">
+          </a>
+          <div class="card-body">
+            <a href="/events/{{event.id}}" target="_blank">
+              <h4 class="card-title">{{event.eventName}}</h4>
+            </a>
+          </div>
+          <a href="/events/{{event.id}}" target="_blank">
+            <div class="card-footer">
+              View Event
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,6 +1,9 @@
 /****************
      FULLPAGE
 ****************/
+body, html {
+  height: 100%;
+}
 
 body {
   font-size: 14px;
@@ -17,11 +20,11 @@ a {
 }
 
 h1 {
-  margin-top:1em;
+  margin-top: 1em;
 }
 
 .container {
-  margin-top:3em;
+  margin-top: 3em;
 }
 
 /****************
@@ -32,7 +35,7 @@ form {
 }
 
 .form-group {
-  margin-top:2em;
+  margin-top: 2em;
 }
 
 label {
@@ -40,12 +43,13 @@ label {
 }
 
 .center_div {
-    margin: 0 auto;
-    width:80% /* value of your choice which suits your alignment */
+  margin: 0 auto;
+  width: 80%
+    /* value of your choice which suits your alignment */
 }
 
 .text-left {
-  margin-top:2em;
+  margin-top: 2em;
 }
 
 .btn-info {
@@ -53,14 +57,13 @@ label {
 }
 
 .required-star {
-  font-size:1.2em;
+  font-size: 1.2em;
   color: var(--red);
 }
 
 /****************
     NAVBAR
 ****************/
-
 nav {
   /* height:80px; */
   padding: 1.16em 3.5em !important;
@@ -68,7 +71,7 @@ nav {
 
 .navbar-brand a {
   text-decoration: none;
-  color:white;
+  color: white;
 }
 
 .navbar a:hover {
@@ -76,7 +79,7 @@ nav {
 }
 
 .nav-links {
-  display:flex;
+  display: flex;
 }
 
 .nav-links li:not(:first-child) {
@@ -94,10 +97,9 @@ nav {
 /***************
      HERO
 ***************/
-
 .hero-title {
-  text-align:center;
-  margin-top:4em;
+  text-align: center;
+  margin-top: 4em;
 }
 
 .hero-title h1 {
@@ -105,18 +107,18 @@ nav {
 }
 
 .hero-title h2 {
-  margin-top:0.75em;
-  color:var(--secondary);
+  margin-top: 0.75em;
+  color: var(--secondary);
 }
 
 /**************
     CTA DIV
 **************/
 .cta-div {
-  margin-top:5em;
-  display:flex;
+  margin-top: 5em;
+  display: flex;
   justify-content: center;
-  margin-bottom:12em;
+  margin-bottom: 12em;
 }
 
 .btn-lg {
@@ -126,10 +128,9 @@ nav {
 /*************
  HOW IT WORKS
 *************/
-
 .how-it-works {
-  margin-top:5em;
-  display:flex;
+  margin-top: 5em;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
@@ -139,31 +140,57 @@ nav {
 }
 
 .value-prop {
-  padding:1em;
+  padding: 1em;
   width: 80%;
 }
 
 .value-prop h3 {
-  color:var(--gray-dark);
+  color: var(--gray-dark);
 }
 
 .value-prop p {
-  color:var(--secondary);
+  color: var(--secondary);
 }
 
 /***************
   SIGNUP/LOGIN
 ***************/
-
 .login-alternative-text {
   margin-top: 1em;
 }
 
+/***************
+  EVENTS index
+***************/
+.card-body {
+  background-color: var(--light)
+}
+
+/***************
+SHOW EVENT PAGE
+***************/
+.cover-image {
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cover-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.event-label {
+  min-width: 200px;
+}
+
 /****MOBILE****/
 @media screen and (max-width: 600px) {
-
   body {
-    font-size:12px;
+    font-size: 12px;
   }
 
   nav {

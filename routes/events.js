@@ -6,7 +6,7 @@ const Event = require('../models/event');
 
 // Events index
 router.get('/', (req, res, next) => {
-  Event.find({}, 'listPublicly', function(err, events) {
+  Event.find({}, function(err, events) {
     if(err) {
       console.error(err);
     } else {
@@ -35,6 +35,7 @@ router.post('/', auth.requireLogin, (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   Event.findById(req.params.id, function(err, event) {
     if(err) { console.error(err) };
+    console.log(event.coverImageUrl);
 
     res.render('events/show', { event: event });
   });
@@ -52,8 +53,8 @@ router.get('/:id/edit', auth.requireLogin, (req, res, next) => {
 router.post('/:id', auth.requireLogin, (req, res, next) => {
   Event.findByIdAndUpdate(req.params.id, req.body, function(err, event) {
     if(err) { console.error(err) };
-
-    res.redirect('/event/' + req.params.id);
+    console.log(req.body);
+    res.redirect('/events/' + req.params.id);
   });
 });
 
