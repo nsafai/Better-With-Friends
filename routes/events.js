@@ -6,7 +6,7 @@ const Event = require('../models/event');
 
 // Events index
 router.get('/', (req, res, next) => {
-  Event.find({}, 'eventName', function(err, events) {
+  Event.find({}, 'listPublicly', function(err, events) {
     if(err) {
       console.error(err);
     } else {
@@ -32,18 +32,29 @@ router.post('/', auth.requireLogin, (req, res, next) => {
 });
 
 // Events show
-router.get('/:id', auth.requireLogin, (req, res, next) => {
-  // TODO
-});
+router.get('/:id', (req, res, next) => {
+  Event.findById(req.params.id, function(err, event) {
+    if(err) { console.error(err) };
 
+    res.render('events/show', { event: event });
+  });
+});
 // Events edit
 router.get('/:id/edit', auth.requireLogin, (req, res, next) => {
-  // TODO
+  Event.findById(req.params.id, function(err, event) {
+    if(err) { console.error(err) };
+
+    res.render('events/edit', { event: event });
+  });
 });
 
 // Events update
 router.post('/:id', auth.requireLogin, (req, res, next) => {
-  // TODO
+  Event.findByIdAndUpdate(req.params.id, req.body, function(err, event) {
+    if(err) { console.error(err) };
+
+    res.redirect('/event/' + req.params.id);
+  });
 });
 
 module.exports = router;

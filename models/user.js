@@ -5,8 +5,15 @@ var uniqueValidator = require('mongoose-unique-validator');
 require('mongoose-type-email');
 
 const UserSchema = new Schema({
-  email: { type: mongoose.SchemaTypes.Email, required: true, unique: true },
-  password: { type: String, required: true }
+  email: {
+    type: mongoose.SchemaTypes.Email,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 UserSchema.plugin(uniqueValidator);
@@ -14,7 +21,7 @@ UserSchema.plugin(uniqueValidator);
 UserSchema.pre('save', function(next) {
   let user = this;
 
-  bcrypt.hash(user.password, 10, function (err, hash){
+  bcrypt.hash(user.password, 10, function(err, hash) {
     if (err) return next(err);
 
     user.password = hash;
@@ -23,8 +30,10 @@ UserSchema.pre('save', function(next) {
 });
 
 UserSchema.statics.authenticate = function(email, password, next) {
-  User.findOne({ email: email })
-    .exec(function (err, user) {
+  User.findOne({
+      email: email
+    })
+    .exec(function(err, user) {
       if (err) {
         return next(err)
       } else if (!user) {
@@ -32,7 +41,7 @@ UserSchema.statics.authenticate = function(email, password, next) {
         err.status = 401;
         return next(err);
       }
-      bcrypt.compare(password, user.password, function (err, result) {
+      bcrypt.compare(password, user.password, function(err, result) {
         if (result === true) {
           return next(null, user);
         } else {

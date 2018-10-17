@@ -23,12 +23,11 @@ router.get('/new', (req, res, next) => {
 
 // POST: creates a new user
 router.post('/', (req, res) => {
-  // CREATE User and JWT
-  const user = new UserSchema(req.body);
+  const user = new User(req.body);
 
   user.save().then((user) => {
+    req.session.user = user
     res.redirect('back');
-    // res.send("blah")
   }).catch((err) => {
     return res.status(400).send({
       err

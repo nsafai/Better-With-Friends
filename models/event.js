@@ -12,7 +12,7 @@ const EventSchema = new Schema({
   venmoHandle: { type: String },
   coverImageUrl: { type: String },
   eventDescription: { type: String },
-  listPublicly: { type:Boolean }
+  listPublicly: { type: Boolean }
 });
 
 EventSchema.plugin(uniqueValidator);

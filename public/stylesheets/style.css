@@ -151,6 +151,14 @@ nav {
   color:var(--secondary);
 }
 
+/***************
+  SIGNUP/LOGIN
+***************/
+
+.login-alternative-text {
+  margin-top: 1em;
+}
+
 /****MOBILE****/
 @media screen and (max-width: 600px) {
 
