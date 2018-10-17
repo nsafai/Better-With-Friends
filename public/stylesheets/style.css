@@ -80,6 +80,7 @@ nav {
 
 .nav-links {
   display: flex;
+  align-items:center;
 }
 
 .nav-links li:not(:first-child) {
