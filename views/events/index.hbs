@@ -1,0 +1,11 @@
+<h1>List of Events</h1>
+
+<div>
+  <ul>
+    {{#each events as |event|}}
+      <li>
+        <a href="/events/{{event.id}}">{{event.eventName}}</a> | <a href="/events/{{event.id}}/edit">edit</a>
+      </li>
+    {{/each}}
+  </ul>
+<div>

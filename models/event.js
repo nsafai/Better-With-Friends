@@ -4,21 +4,18 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 const EventSchema = new Schema({
   eventName: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  eventDate: { type: String },
+  eventLocation: { type: String, required: true },
+  costPerTicket: { type: Number, required: true },
+  minimumAttendees: { type: Number, required: true },
+  maximumAttendees: { type: Number },
+  venmoHandle: { type: String },
+  coverImageUrl: { type: String },
+  eventDescription: { type: String },
+  listPublicly: { type:Boolean }
 });
 
 EventSchema.plugin(uniqueValidator);
-
-// UserSchema.pre('save', function(next) {
-//   let user = this;
-//
-//   bcrypt.hash(user.password, 10, function (err, hash){
-//     if (err) return next(err);
-//
-//     user.password = hash;
-//     next();
-//   })
-// });
 
 const Event = mongoose.model('Event', EventSchema);
 module.exports = Event;

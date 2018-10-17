@@ -1,0 +1,48 @@
+<div>
+  <form action="/events" method="post" class="center_div">
+    <h1>New Event</h1>
+
+    <div class="form-group">
+      <label for="event-title">The Idea</label><span class="required-star">*</span>
+      <input type="text" name="eventName" class="form-control" id="event-topic" placeholder="ex: New Year's Cruise">
+    </div>
+    <div class="form-group">
+      <label for="event-cost">Cost per Person</label><span class="required-star">*</span>
+      <input type="number" name="costPerTicket" class="form-control" id="event-cost" placeholder="Amount ($)">
+    </div>
+    <div class="form-group">
+      <label for="event-minimum-attendees">Minimum # Attendees</label><span class="required-star">*</span>
+      <input type="number" name="minimumAttendees" class="form-control" id="event-min-attendees" placeholder="Minimum # Attendees">
+    </div>
+    <!-- <div class="form-group">
+      <label for="event-maximum-attendees">Maximum # Attendees</label><span class="required-star">*</span>
+      <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Maximum # Attendees">
+    </div> -->
+    <div class="form-group">
+      <label for="event-venmo-handle">Venmo Handle</label><span class="required-star">*</span>
+      <input type="text" name="venmoHandle" class="form-control" id="event-venmo-handle" placeholder="ex: @jamesbond">
+    </div>
+    <div class="form-group">
+      <label for="event-date">Date</label>
+      <input type="date" name="eventDate" class="form-control" id="event-date" placeholder="Date">
+    </div>
+    <div class="form-group">
+      <label for="event-location">Location</label>
+      <input type="text" name="eventLocation" class="form-control" id="event-location" placeholder="Pier 39, San Francisco, CA">
+    </div>
+    <div class="form-group">
+      <label for="event-image">Cover Image URL</label>
+      <input type="text" name="coverImageUrl" class="form-control" id="event-cover-image-url" placeholder="https://images.pexels.com/photos/573263/pexels-photo-573263.jpeg">
+    </div>
+    <div class="form-group">
+      <label for="event-date">Description</label>
+      <textarea rows="4" cols="50" name="eventDescription" class="form-control" id="event-description" placeholder="Description">
+      </textarea>
+    </div>
+
+
+    <div class="text-left">
+      <button type="submit" class="btn btn-info">Create</button>
+    </div>
+  </form>
+</div>
