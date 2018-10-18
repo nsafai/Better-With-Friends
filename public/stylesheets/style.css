@@ -12,11 +12,15 @@ body {
 }
 
 main {
-  padding: 1em 2em;
+  /* padding: 1em 2em; */
 }
 
 a {
-  color: #00B7FF;
+  color: var(--info);
+}
+
+a:hover {
+  color: #2e5f75;
 }
 
 h1 {
@@ -99,10 +103,16 @@ nav {
   color: #f1f2f6;
 }
 
-.collapse .nav-links, .collapsing .nav-links {
+.collapse.show .nav-links, .collapsing .nav-links, .collapsing .nav-links  {
+  margin-top:1em;
+  display:flex;
   flex-direction: column;
   align-items:flex-end;
   justify-content:flex-end;
+}
+
+.nav-links li {
+  padding:0.3em;
 }
 
 /***************
@@ -110,7 +120,7 @@ nav {
 ***************/
 .hero-title {
   text-align: center;
-  margin-top: 4em;
+  margin-top: 12em;
 }
 
 .hero-title h1 {
@@ -134,7 +144,22 @@ nav {
 
 .btn-lg {
   padding: 0.75rem 2rem;
+
 }
+
+.btn-lg {
+  box-shadow: 0 0, 0 0 2px rgba(0,0,0,0.23);
+  border-radius:8px;
+}
+
+.btn-lg:hover {
+  color:var(--info);
+  border-radius: 1px;
+  border-color:var(--info);
+  background-color: white;
+  border-radius:6px;
+}
+
 
 /*************
  HOW IT WORKS
@@ -177,9 +202,32 @@ nav {
   background-color: var(--light)
 }
 
+.row {
+  margin-top: 2em;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.event-date {
+  color:#636e72;
+}
+
 /***************
 SHOW EVENT PAGE
 ***************/
+
+.card {
+  box-shadow: 0 0, 0 0 2px rgba(0,0,0,0.23);
+}
+
+.card:hover {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.22);
+}
+
 .cover-image {
   height: 100%;
   /* Center and scale the image nicely */
@@ -189,13 +237,22 @@ SHOW EVENT PAGE
 }
 
 .cover-image img {
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
+  width: 100%;
+  height: 25vw;
+  object-fit: cover;
 }
+
+
 
 .event-label {
   min-width: 200px;
+}
+
+/***************
+    NEW EVENT
+***************/
+#venmo-label {
+  width: 100%;
 }
 
 /****MOBILE****/
@@ -215,6 +272,10 @@ SHOW EVENT PAGE
 
   .cta-div {
     margin-bottom: 8em;
+  }
+
+  .hero-title {
+    margin-top: 6em;
   }
 
   .how-it-works {

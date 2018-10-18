@@ -1,26 +1,25 @@
-<h1>List of Events</h1>
-
-
-<div class="card-deck">
-  {{#each events as |event|}}
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="card" style="width: 20rem;">
-          <a href="/events/{{event.id}}" target="_blank">
-            <img class="card-img-top" src="{{event.coverImageUrl}}" alt="Card image">
-          </a>
-          <div class="card-body">
-            <a href="/events/{{event.id}}" target="_blank">
-              <h4 class="card-title">{{event.eventName}}</h4>
+<div class="container">
+  <h1>List of Events</h1>
+  <div class="card-deck">
+    {{#each events as |event|}}
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem;">
+            <a href="/events/{{event.id}}">
+              <img class="card-img-top" src="{{event.coverImageUrl}}" alt="Card image">
             </a>
-          </div>
-          <a href="/events/{{event.id}}" target="_blank">
-            <div class="card-footer">
-              View Event
+            <div class="card-body">
+              <a href="/events/{{event.id}}">
+                <h4 class="card-title">{{event.eventName}}</h4>
+              </a>
+              <time class="event-date">{{moment event.eventDate format="MMMM Do, YYYY"}}</time>
             </div>
-          </a>
+            <div class="card-footer">
+              {{event.venmoHandle}}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>

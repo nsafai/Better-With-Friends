@@ -24,6 +24,7 @@ app.use(session({ secret: '${SESSION_CODE}', cookie: { maxAge: 3600000 }, resave
 
 
 // view engine setup
+var helpers = require('handlebars-helpers')();
 const exphbs = require('express-handlebars');
 app.engine('hbs', exphbs({
   defaultLayout: 'main',
@@ -61,6 +62,7 @@ app.use(function(err, req, res, next) {
 const mongoose = require('mongoose');
 const mongoURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${MONGODB_URI}`
 mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true); // silencing a deprecated feature warning that's a bug per https://github.com/Automattic/mongoose/issues/6890
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

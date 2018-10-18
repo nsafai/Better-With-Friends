@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const auth = require('./helpers/auth');
+const User = require('../models/user');
 const Event = require('../models/event');
 
 // Events index

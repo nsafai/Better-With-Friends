@@ -1,7 +1,6 @@
-<div>
+<div class="container">
   <form action="/events" method="post" class="center_div">
     <h1>New Event</h1>
-
     <div class="form-group">
       <label for="event-title">The Idea</label><span class="required-star">*</span>
       <input type="text" name="eventName" class="form-control" id="event-topic" placeholder="ex: New Year's Cruise">
@@ -19,12 +18,9 @@
       <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. #">
     </div>
     <div class="input-group">
-      <label for="event-venmo-handle">Venmo Handle</label><span class="required-star">*</span>
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" name="venmoHandle" class="form-control" id="event-venmo-handle" placeholder="ex: jamesbond">
-
-      </div>
+      <label for="event-venmo-handle" id="venmo-label">Venmo Handle<span class="required-star">*</span></label>
+      <span class="input-group-text" id="basic-addon1">@</span>
+      <input type="text" name="venmoHandle" class="form-control" id="event-venmo-handle" placeholder="ex: jamesbond">
     </div>
     <div class="form-group">
       <label for="event-date">Date</label>
@@ -46,8 +42,7 @@
     <div class="checkbox">
       <label><input type="checkbox" name="listPublicly"> Show my event publicly on Event Starter's /events page</label>
     </div>
-
-
+    <input type="hidden" name="organizerUserId" class="form-control" id="event-organizer-user-id" value="{{user._id}}">
     <div class="text-left">
       <button type="submit" class="btn btn-info">Create</button>
     </div>
