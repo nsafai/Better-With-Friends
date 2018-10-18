@@ -80,6 +80,10 @@ label {
   color: var(--red);
 }
 
+.form-row {
+  align-items: flex-end;
+}
+
 /****************
     NAVBAR
 ****************/
