@@ -3,7 +3,7 @@
 ### Summary
 Crowdfunding for small events with Friends
 
-### Primary Technologies
+### Technologies
 Express, NodeJS, Handlebars, Mongoose, MongoDB
 
 ### To-do
