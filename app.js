@@ -61,7 +61,7 @@ app.use(function(err, req, res, next) {
 // Database setup
 const mongoose = require('mongoose');
 const mongoURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${MONGODB_URI}`
-mongoose.connect(mongoURI || 'mongodb://localhost/event-starter', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/event-starter', { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true); // silencing a deprecated feature warning that's a bug per https://github.com/Automattic/mongoose/issues/6890
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
