@@ -1,21 +1,34 @@
-<div>
+<div class="container">
   <form action="/users" method="post" class="center_div">
     <h1>Sign Up</h1>
 
     <div class="form-group">
-      <label for="user-email" style="display:none">Email</label>
+      <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <!-- <label for="user-email">Email</label><span class="required-star">*</span> -->
       <input type="email" name="email" class="form-control" id="user-email" placeholder="Email">
     </div>
 
     <div class="form-group">
-      <label for="user-password" style="display:none">Password</label>
-      <input type="password" name="password" class="form-control" id="user-password" placeholder="Create Password">
+      <!-- <label for="user-password">Password</label><span class="required-star">*</span> -->
+      <input type="password" name="password" class="form-control" id="user-password" placeholder="Set Password">
+    </div>
+
+    <div class="input-group">
+      <!-- <label for="user-venmo-handle" id="venmo-label"> -->
+        <!-- Venmo username<span class="required-star">*</span><br> -->
+        <span class="helper-text"> Don't have Venmo? <a href="https://venmo.com/signup" target="blank">Create an account</a> for free.</span>
+      <!-- </label> -->
+      <span class="input-group-text" id="basic-addon1">@</span>
+      <input type="text" name="venmoHandle" class="form-control" id="event-venmo-handle" placeholder="venmo-username" value="{{user.venmoHandle}}">
     </div>
 
     <div class="text-left">
       <button type="submit" class="btn btn-info">Sign Up</button>
     </div>
-    <div class="login-alternative-text">
+    <div class="helper-text">
       Already have an account? <a href="/login">Log in</a>.
     </div>
   </form>

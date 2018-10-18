@@ -29,6 +29,12 @@ h1 {
 
 .container {
   margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+input {
+  border:none;
+  padding: 0.75em 1em !important;
 }
 
 /****************
@@ -40,6 +46,15 @@ form {
 
 .form-group {
   margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.form-control, .input-group-text {
+  border:none; /*to cancel out border from bootstrap*/
+}
+
+.input-group-text {
+  background-color: #ced4da;
 }
 
 label {
@@ -189,13 +204,6 @@ nav {
 }
 
 /***************
-  SIGNUP/LOGIN
-***************/
-.login-alternative-text {
-  margin-top: 1em;
-}
-
-/***************
   EVENTS index
 ***************/
 .card-body {
@@ -229,8 +237,8 @@ SHOW EVENT PAGE
 }
 
 .cover-image {
-  height: 100%;
   /* Center and scale the image nicely */
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -242,12 +250,31 @@ SHOW EVENT PAGE
   object-fit: cover;
 }
 
-
-
 .event-label {
   min-width: 200px;
 }
 
+.join-event-form form {
+  display:flex;
+  justify-content: center;
+}
+
+.join-event-btn {
+  margin-top:1.5em;
+}
+
+/***************
+ SIGNUP / LOGIN
+***************/
+.helper-text {
+  color:var(--gray);
+  width:100%;
+  flex-grow:1;
+}
+
+div.helper-text {
+  margin-top: 1em;
+}
 /***************
     NEW EVENT
 ***************/

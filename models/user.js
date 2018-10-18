@@ -13,6 +13,12 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  name: {
+    type: String
+  },
+  venmoHandle: {
+    type: String
   }
 });
 
