@@ -1,8 +1,12 @@
 # Event Starter
 
+### Summary
 Crowdfunding for small events with Friends
 
-## To-do
+### Primary Technologies
+Express, NodeJS, Handlebars, Mongoose, MongoDB
+
+### To-do
 
 - [ ] As an organizer I can edit event details (Event Edit/update /w authorization)
 - [ ] As a user I can join an event. (Event PUT (update))
