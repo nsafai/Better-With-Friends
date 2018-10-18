@@ -7,13 +7,13 @@ const Event = require('../models/event');
 
 // Events index
 router.get('/', (req, res, next) => {
-  Event.find({}, function(err, events) {
+  Event.find({'listPublicly': { $ne: null } }, function(err, events) {
     if(err) {
       console.error(err);
     } else {
       res.render('events/index', { events: events });
     }
-  });
+  }).sort([['eventDate', 1]]);
 });
 
 // Events new

@@ -15,8 +15,8 @@
           <input type="number" name="minimumAttendees" class="form-control" id="event-min-attendees" placeholder="Min. #">
       </div>
       <div class="col">
-          <label for="event-maximum-attendees">Maximum # Attendees</label>
-          <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. # (optional)">
+          <label for="event-maximum-attendees">Maximum # Attendees</label><span class="required-star"></span>
+          <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. #n">
       </div>
     </div>
     <div class="form-group">
@@ -33,8 +33,7 @@
     </div>
     <div class="form-group">
       <label for="event-date">Description</label>
-      <textarea rows="4" cols="50" name="eventDescription" class="form-control" id="event-description" placeholder="Description">
-      </textarea>
+      <textarea rows="4" cols="50" name="eventDescription" class="form-control" id="event-description" placeholder="Write 2-3 sentences about the event."></textarea>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="listPublicly"> Show my event publicly on Event Starter's /events page</label>

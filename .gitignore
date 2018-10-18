@@ -6,3 +6,6 @@
 
 # Optional npm cache directory
 .npm
+
+# Node_modules directory
+node_modules
