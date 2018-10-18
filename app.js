@@ -61,10 +61,14 @@ app.use(function(err, req, res, next) {
 // Database setup
 const mongoose = require('mongoose');
 const mongoURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${MONGODB_URI}`
-mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.connect(mongoURI || 'mongodb://localhost/event-starter', { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true); // silencing a deprecated feature warning that's a bug per https://github.com/Automattic/mongoose/issues/6890
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+// for heroku
+const port = process.env.PORT || 3000;
+app.listen(port);
 
 module.exports = app;
