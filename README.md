@@ -1,11 +1,12 @@
 # Event Starter
 
-### Crowdfunding for small events with Friends
+Crowdfunding for small events with Friends
 
 ## To-do
 
-- [ ] Event Edit/update /w authorization
-- [ ] Event Delete /w authorization
+- [ ] As an organizer I can edit event details (Event Edit/update /w authorization)
+- [ ] As a user I can join an event. (Event PUT (update))
+- [ ] As an organizer I can delete an event (Event Delete /w authorization)
 - [ ] Add background to homepage
 - [ ] Polish /events/show.hbs
 - [ ] Polish /events/new.hbs (try to mirror show.hbs)
