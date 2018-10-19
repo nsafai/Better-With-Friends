@@ -22,15 +22,18 @@ var app = express();
 const session = require('express-session');
 app.use(session({ secret: '${SESSION_CODE}', cookie: { maxAge: 3600000 }, resave: true, saveUninitialized: true }));
 
-
+// var helpers = require('handlebars-helpers');
 // view engine setup
-var helpers = require('handlebars-helpers')();
 const exphbs = require('express-handlebars');
+
 app.engine('hbs', exphbs({
-  defaultLayout: 'main',
-  extname: 'hbs'
+  defaultLayout: "main",
+  extname: ".hbs",
+  helpers: require("handlebars-helpers").helpers
 }));
 app.set('view engine', 'hbs');
+// var helpers = require('handlebars-helpers')();
+
 
 app.use(logger('dev'));
 app.use(express.json());
