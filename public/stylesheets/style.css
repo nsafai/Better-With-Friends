@@ -89,7 +89,7 @@ label {
 ****************/
 nav {
   /* height:80px; */
-  padding: 1.16em 3.5em !important;
+  padding: 1.16em 3em !important;
 }
 
 .navbar-brand a {
@@ -145,7 +145,7 @@ nav {
 
 .hero-title h1 {
   font-family: 'Noto Serif', serif;
-  font-size: 5em;
+  font-size: 6em;
 }
 
 .hero-title h2 {
