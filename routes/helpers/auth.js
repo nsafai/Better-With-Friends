@@ -1,5 +1,5 @@
 exports.requireLogin = (req, res, next) => {
-  console.log(req.originalUrl);
+  console.log("The following URL is requesting a login: " + req.originalUrl);
   if(req.session && req.session.user) {
     return next();
   } else {
@@ -7,6 +7,7 @@ exports.requireLogin = (req, res, next) => {
     err.status = 401;
 
     // return res.redirect('/login');
-    return res.render('login', { originalUrl: req.originalUrl });
+    return res.render('login', { senderUrl: req.originalUrl, reasonForLogin: req.body.reasonForLogin
+    });
   }
 }

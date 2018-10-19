@@ -26,8 +26,9 @@ router.post('/', (req, res) => {
   const user = new User(req.body);
 
   user.save().then((user) => {
-    req.session.user = user
-    res.redirect('back');
+    console.log(req.headers.referer);
+    req.session.user = user;
+    res.redirect('/');
   }).catch((err) => {
     return res.status(400).send({
       err

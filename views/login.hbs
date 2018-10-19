@@ -1,6 +1,7 @@
 <div class="container">
   <form action="/login" method="post" class="center_div">
     <h1>Log In</h1>
+    {{# if reasonForLogin}}<p>{{reasonForLogin}}</p>{{/if}}
 
     <div class="form-group">
       <label for="user-email" style="display:none">Email</label>
@@ -11,6 +12,8 @@
       <label for="user-password" style="display:none">Password</label>
       <input type="password" name="password" class="form-control" id="user-password" placeholder="password">
     </div>
+
+    <input type="hidden" name="senderUrl" value="{{senderUrl}}">
 
     <div class="text-left">
       <button type="submit" class="btn btn-info">Log In</button>

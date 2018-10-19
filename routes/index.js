@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/signup', (req, res, next) => {
+  // console.log(req);
   res.render('users/new');
 });
 
@@ -34,11 +35,11 @@ router.post('/login', (req, res, next) => {
     } else {
       req.session.user = user;
       console.log(user);
-      console.log(req);
+      // console.log(req.body.senderUrl);
       // console.log("Login request from: " + originalUrl);
 
       // req.session.isAdmin = user.admin;
-      return res.redirect('/');
+      return res.redirect(req.body.senderUrl);
     }
   });
 });
