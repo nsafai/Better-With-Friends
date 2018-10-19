@@ -5,20 +5,15 @@
   <h1>{{event.eventName}}</h1>
   <p class="helper-text"><span class="event-label">Public: {{# if event.listPublicly}}Yes{{else}}No{{/if}}</span></p>
   <h4><span class="event-label">Date:</span>{{# if event.eventDate}} {{event.eventDate}}{{else}} TBD{{/if}}</h4>
-  <h4><span class="event-label">Organizer:</span> {{event.venmoHandle}}</h4>
+  <h4><span class="event-label">Organizer:</span> {{event.organizerName}}</h4>
   <h4><span class="event-label">Location:</span>{{# if event.eventLocation}} {{event.eventLocation}}{{else}} TBD{{/if}}</h4>
   <h4><span class="event-label">Cost:</span> {{event.costPerTicket}}</h4>
   <h4><span class="event-label">Min:</span> {{event.minimumAttendees}}</h4>
   {{# if event.maximumAttendees}}<h4><span class="event-label">Max:</span> {{event.maximumAttendees}}</h4>{{/if}}
   <hr>
-  <form action="/events" method="post">
+  <form action="/events/{{event.id}}" method="post">
     <div class="form-group">
-      <input type="text" name="attendeeName" class="form-control" id="attendee-name" placeholder="Your Name">
-    </div>
-    <div class="input-group">
-      <span class="helper-text"> Don't have Venmo? <a href="https://venmo.com/signup" target="blank">Create an account</a> for free.</span>
-      <span class="input-group-text" id="basic-addon1">@</span>
-      <input type="text" name="venmoHandle" class="form-control" id="event-venmo-handle" placeholder="venmo-username" value="{{user.venmoHandle}}">
+      <input type="hidden" name="attendeeUserId" class="form-control" id="attendee-user-id" value="{{user._id}}">
     </div>
     <a href=""><button type="submit" class="btn btn-info btn-lg join-event-btn">Join (${{event.costPerTicket}})</button></a>
   </form>

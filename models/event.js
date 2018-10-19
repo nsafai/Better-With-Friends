@@ -13,7 +13,9 @@ const EventSchema = new Schema({
   eventDescription: { type: String },
   listPublicly: { type: String },
   organizerName: { type: String },
-  organizerUserId: { type: String, required: true }
+  organizerUserId: { type: String, required: true },
+  arrayOfAttendeeIds: { type: Array },
+  numberOfAttendees: { type: Array }
 });
 
 EventSchema.plugin(uniqueValidator);

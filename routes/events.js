@@ -52,6 +52,7 @@ router.get('/:id/edit', auth.requireLogin, (req, res, next) => {
 
 // Events update
 router.post('/:id', auth.requireLogin, (req, res, next) => {
+  console.log(req.params.id);
   Event.findByIdAndUpdate(req.params.id, req.body, function(err, event) {
     if(err) { console.error(err) };
     console.log(req.body);
