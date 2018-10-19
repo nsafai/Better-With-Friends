@@ -53,7 +53,9 @@ router.get('/:id/edit', auth.requireLogin, (req, res, next) => {
 // Events update
 router.post('/:id', auth.requireLogin, (req, res, next) => {
   console.log(req.params.id);
-  Event.findByIdAndUpdate(req.params.id, req.body, function(err, event) {
+  Event.findByIdAndUpdate(
+    req.params.id,
+    { $addToSet: { arrayOfAttendeeIds: req.body.attendeeUserId }, $inc: { numberOfAttendees: 1 } }, function(err, event) {
     if(err) { console.error(err) };
     console.log(req.body);
     res.redirect('/events/' + req.params.id);

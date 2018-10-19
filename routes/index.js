@@ -32,9 +32,10 @@ router.post('/login', (req, res, next) => {
 
       return next(next_error);
     } else {
-      req.session.user = user
-      console.log(user)
-      console.log("Login request from: " + originalUrl);
+      req.session.user = user;
+      console.log(user);
+      console.log(req);
+      // console.log("Login request from: " + originalUrl);
 
       // req.session.isAdmin = user.admin;
       return res.redirect('/');

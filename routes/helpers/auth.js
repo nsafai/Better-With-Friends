@@ -7,6 +7,6 @@ exports.requireLogin = (req, res, next) => {
     err.status = 401;
 
     // return res.redirect('/login');
-    return res.redirect('/login', { originalUrl: req.originalUrl });
+    return res.render('login', { originalUrl: req.originalUrl });
   }
 }
