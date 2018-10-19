@@ -39,7 +39,8 @@ router.post('/login', (req, res, next) => {
       // console.log("Login request from: " + originalUrl);
 
       // req.session.isAdmin = user.admin;
-      return res.redirect(req.body.senderUrl);
+      // return res.redirect(req.body.senderUrl);
+      return res.redirect('/');
     }
   });
 });
