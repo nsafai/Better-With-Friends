@@ -245,7 +245,7 @@ nav {
 
 .card-img-top {
     width: 100%;
-    height: 15vw;
+    height: 15vh;
     object-fit: cover;
 }
 
@@ -259,6 +259,7 @@ SHOW EVENT PAGE
 
 .card {
   box-shadow: 0 0, 0 0 2px rgba(0,0,0,0.23);
+  width:20rem;
 }
 
 .card:hover {
@@ -313,7 +314,7 @@ div.helper-text {
 }
 
 /****MOBILE****/
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
   body {
     font-size: 12px;
   }
@@ -383,4 +384,13 @@ div.helper-text {
   form {
     max-width: 100%;
   }
+
+  /****** MOBILE LIST OF EVENTS PAGE ******/
+  .card-deck {
+    padding:0 5%;
+  }
+  .card {
+    width:100%;
+  }
+
 }
