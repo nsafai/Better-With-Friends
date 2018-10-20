@@ -76,5 +76,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // for heroku
 const port = process.env.PORT || 3000;
+app.listen(port);
 
 module.exports = app;
