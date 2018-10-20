@@ -19,9 +19,12 @@ Crowdfunding for small events with Friends
 Express, NodeJS, Handlebars, Mongoose, MongoDB
 
 ### To-do
-
-- [ ] As a user I can join an event. (Event PUT (update))
-- [ ] As an organizer, I can see venmo handles for a specific event (w/ authorization) /events/:id/manage
+- [x] As a website visitor, I can create an account
+- [x] As a website visitor, I can login
+- [x] As an organizer, I can create an event.
+- [x] As a website visitor, I can view all events
+- [x] As a user, I can join an event. (Event PUT (update))
+- [x] As an organizer, I can see Venmo handles for a specific event
 - [ ] As an organizer I can edit event details (Event Edit/update /w authorization)
 - [ ] As an organizer I can delete an event (Event Delete /w authorization)
 - [ ] Add background to homepage
