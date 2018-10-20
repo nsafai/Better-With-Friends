@@ -19,22 +19,33 @@ Crowdfunding for small events with Friends
 Express, NodeJS, Handlebars, Mongoose, MongoDB
 
 ### To-do
+
+**Done:**
+
 - [x] As a website visitor, I can create an account
 - [x] As a website visitor, I can login
 - [x] As an organizer, I can create an event.
 - [x] As a website visitor, I can view all events
 - [x] As a user, I can join an event. (Event PUT (update))
 - [x] As an organizer, I can see Venmo handles for a specific event
+- [x] Write copy
+- [x] By Fri Oct 19: Slides
+- [x] By EOW: Ship to Heroku
+- [x] Polish /events/index.hbs
+
+**Remaining:**
+
 - [ ] As an organizer I can edit event details (Event Edit/update /w authorization)
 - [ ] As an organizer I can delete an event (Event Delete /w authorization)
 - [ ] Add background to homepage
 - [ ] Polish /events/show.hbs
 - [ ] Polish /events/new.hbs (try to mirror show.hbs)
-- [ ] Polish /events/index.hbs
-- [ ] Write copy
-- [ ] By Fri Oct 19: Slides
 - [ ] User Edit/Update
 - [ ] Comments
-- [ ] Make users page admin-only
-- [ ] By EOW: Ship to Heroku
+- [ ] Other links
+- [ ] As an organizer, I can press a button to send out venmo charges
+- [ ] As an organizer, I can mark off who has paid
+- [ ] Make /users page admin-only
 - [ ] Polish signup error page
+
+Email feature requests to me@nicolaisafai.com
