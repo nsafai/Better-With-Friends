@@ -316,11 +316,7 @@ div.helper-text {
 /****MOBILE****/
 @media screen and (max-width: 600px) {
   body {
-    font-size: 12px;
-  }
-
-  p {
-    font-size:14px;
+    font-size: 14px;
   }
 
   nav {
