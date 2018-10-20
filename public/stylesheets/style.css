@@ -134,6 +134,11 @@ nav {
   padding:0.3em;
 }
 
+.navbar-brand {
+  font-family: 'Noto Serif', serif;
+  font-weight:300;
+}
+
 /***************
      HERO
 ***************/
@@ -145,6 +150,7 @@ nav {
 
 .hero-title h1 {
   font-family: 'Noto Serif', serif;
+  font-weight: 700;
   font-size: 6em;
 }
 
@@ -201,6 +207,7 @@ nav {
 
 .how-it-works-section-title {
   font-family: 'Noto Serif', serif;
+  font-weight:600;
   font-size:3em;
   width:100%;
   text-align:center;
