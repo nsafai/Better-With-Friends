@@ -18,11 +18,11 @@
   </form>
   <hr>
   {{# if event.numberOfAttendees}}
-    <h2>Who's Going</h2>
-    <p>{{event.numberOfAttendees}} people are attending this event.</p>
+    <h2>Who's Down</h2>
+    <p>{{event.numberOfAttendees}} person(s) are down for this event.</p>
     <ul>
       {{#each attendees as |attendee|}}
-        <li>{{attendee.name}}</li>
+        <li>{{attendee.name}} <span class="helper-text">| @{{attendee.venmoHandle}}</span></li>
       {{/each}}
     </ul>
   {{else}}
