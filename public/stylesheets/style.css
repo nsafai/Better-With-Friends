@@ -30,7 +30,7 @@ h1 {
 
 .container {
   margin-top: 3em;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
 }
 
 input {
@@ -320,7 +320,9 @@ div.helper-text {
   width: 100%;
 }
 
-/****MOBILE****/
+/****************
+      MOBILE
+****************/
 @media screen and (max-width: 600px) {
   body {
     font-size: 14px;
@@ -395,5 +397,8 @@ div.helper-text {
   .card {
     width:100%;
   }
-
+  /***** SHOW EVENT PAGE ******/
+  .join-event-btn {
+    margin-top:0.75em;
+  }
 }
