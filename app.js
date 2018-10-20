@@ -1,6 +1,6 @@
 // hide some sensitive data
 require('dotenv').config();
-const MONGODB_URI = process.env.MONGODB_URI;
+const MLAB_URI = process.env.MLAB_URI;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const SESSION_CODE = process.env.SESSION_CODE;
@@ -63,8 +63,8 @@ app.use(function(err, req, res, next) {
 
 // Database setup
 const mongoose = require('mongoose');
-const mongoURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${MONGODB_URI}`
-mongoose.connect(process.env.MONGODB_URI || mongoURI, { useNewUrlParser: true });
+const mlabURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${MLAB_URI}`
+mongoose.connect(process.env.MONGODB_URI || mlabURI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true); // silencing a deprecated feature warning that's a bug per https://github.com/Automattic/mongoose/issues/6890
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
@@ -72,7 +72,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Database setup
 
-// mongoose.connect(process.env.MONGODB_URI || mongoURI);
+// mongoose.connect(process.env.MONGODB_URI || mlabURI);
 
 // for heroku
 const port = process.env.PORT || 3000;
