@@ -320,6 +320,10 @@ div.helper-text {
   width: 100%;
 }
 
+.label-star-div {
+  display:flex;
+}
+
 /****************
       MOBILE
 ****************/
