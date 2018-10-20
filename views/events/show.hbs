@@ -13,15 +13,20 @@
   <form action="/events/{{event.id}}" method="post">
     <input type="hidden" name="attendeeUserId" class="form-control" id="attendee-user-id" value="{{user._id}}">
     <input type="hidden" name="reasonForLogin" class="form-control" id="reason-for-login" value="You must signup or login to join an event.">
+    <input type="hidden" name="numberOfAttendees" class="form-control" id="number-of-attendees" value={{event.arrayOfAttendeeIds.length}}>
     <a href=""><button type="submit" class="btn btn-info btn-lg join-event-btn">Join (${{event.costPerTicket}})</button></a>
   </form>
   <hr>
-  <h2>Who's Going</h2>
-  <p>{{event.numberOfAttendees}} people are attending this event.</p>
-  <ul>
-    {{#each event.arrayOfAttendeeIds as |attendee|}}
-      <li>{{attendee}}</li>
-    {{/each}}
-  </ul>
-
+  {{# if event.numberOfAttendees}}
+    <h2>Who's Going</h2>
+    <p>{{event.numberOfAttendees}} people are attending this event.</p>
+    <ul>
+      {{#each attendees as |attendee|}}
+        <li>{{attendee.name}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <h2>Start the movement.</h2>
+    <p>The first follower is even more important than the leader.</p>
+  {{/if}}
 </div>

@@ -3,29 +3,29 @@
     <h1>New Event</h1>
     <div class="form-group">
       <label for="event-title">The Idea</label><span class="required-star">*</span>
-      <input type="text" name="eventName" class="form-control" id="event-topic" placeholder="ex: New Year's Cruise">
+      <input type="text" name="eventName" class="form-control" id="event-topic" placeholder="ex: New Year's Cruise" required>
     </div>
     <div class="form-row">
       <div class="col">
         <label for="event-cost">Cost per Person</label><span class="required-star">*</span>
-        <input type="number" name="costPerTicket" class="form-control" id="event-cost" placeholder="Amount ($)">
+        <input type="number" name="costPerTicket" class="form-control" id="event-cost" placeholder="Amount ($)" required>
       </div>
       <div class="col">
           <label for="event-minimum-attendees">Minimum # Attendees</label><span class="required-star">*</span>
-          <input type="number" name="minimumAttendees" class="form-control" id="event-min-attendees" placeholder="Min. #">
+          <input type="number" name="minimumAttendees" class="form-control" id="event-min-attendees" placeholder="Min. #" required>
       </div>
       <div class="col">
           <label for="event-maximum-attendees">Maximum # Attendees</label><span class="required-star"></span>
-          <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. #">
+          <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. #" required>
       </div>
+    </div>
+    <div class="form-group">
+      <label for="event-location">Location</label><span class="required-star">*</span>
+      <input type="text" name="eventLocation" class="form-control" id="event-location" placeholder="Pier 39, San Francisco, CA" required>
     </div>
     <div class="form-group">
       <label for="event-date">Date</label>
       <input type="date" name="eventDate" class="form-control" id="event-date" placeholder="Date">
-    </div>
-    <div class="form-group">
-      <label for="event-location">Location</label>
-      <input type="text" name="eventLocation" class="form-control" id="event-location" placeholder="Pier 39, San Francisco, CA">
     </div>
     <div class="form-group">
       <label for="event-image">Cover Image URL</label>
