@@ -32,17 +32,19 @@ Express, NodeJS, Handlebars, Mongoose, MongoDB
 - [x] By Fri Oct 19: Slides
 - [x] By EOW: Ship to Heroku
 - [x] Polish /events/index.hbs
+- [x] As an organizer I can edit event details (Event Edit/update /w authorization)
 
 **Remaining:**
 
-- [ ] As an organizer I can edit event details (Event Edit/update /w authorization) **WIP, need to add auth check**
+- [ ] When I'm prompted to login, the action I was trying to perform is not lost, and I'm re-directed appropriately
 - [ ] As an organizer I can delete an event (Event Delete /w authorization)
 - [ ] Add background to homepage
 - [ ] Polish /events/show.hbs
 - [ ] Polish /events/new.hbs (try to mirror show.hbs)
 - [ ] User Edit/Update
-- [ ] Comments
-- [ ] Other links
+- [ ] As a user, I can comment on an events page
+- [ ] As an organizer, I have an events/:id/admin page that gives me a clickable button to charge people for the event, and keep track of who has completed the charge
+- [ ] As an organizer, I can add other links (like a spreadsheet, or doodle responses) to my events/:id/admin page
 - [ ] As an organizer, I can press a button to send out venmo charges
 - [ ] As an organizer, I can mark off who has paid
 - [ ] Make /users page admin-only

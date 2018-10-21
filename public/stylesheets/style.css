@@ -301,6 +301,10 @@ SHOW EVENT PAGE
   margin-top:1.5em;
 }
 
+.event-header .btn {
+  /* margin-left:1em; */
+  margin-bottom:0.5em;
+}
 /***************
  SIGNUP / LOGIN
 ***************/
