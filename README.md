@@ -35,7 +35,7 @@ Express, NodeJS, Handlebars, Mongoose, MongoDB
 
 **Remaining:**
 
-- [ ] As an organizer I can edit event details (Event Edit/update /w authorization)
+- [ ] As an organizer I can edit event details (Event Edit/update /w authorization) **WIP, need to add auth check**
 - [ ] As an organizer I can delete an event (Event Delete /w authorization)
 - [ ] Add background to homepage
 - [ ] Polish /events/show.hbs

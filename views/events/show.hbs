@@ -4,7 +4,9 @@
 <div class="container">
   <div class="event-header">
     <h1>{{event.eventName}}</h1>
-    <a href="/events/{{event.id}}/edit" class="btn btn-secondary">Edit</a>
+    <p>Current User ID: {{user._id}}</p>
+    <p>Organizer ID: {{event.organizerUserId}}</p>
+    {{#eq event.organizerUserId user._id}}<a href="/events/{{event.id}}/edit" class="btn btn-secondary">Edit</a>{{/eq}}
   </div>
   <p class="helper-text"><span class="event-label">Public: {{# if event.listPublicly}}Yes{{else}}No{{/if}}</span></p>
   <p><span class="event-label">Date:</span>{{# if event.eventDate}} {{event.eventDate}}{{else}} TBD{{/if}}</h4>

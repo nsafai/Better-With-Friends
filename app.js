@@ -25,11 +25,11 @@ app.use(session({ secret: '${SESSION_CODE}', cookie: { maxAge: 3600000 }, resave
 // var helpers = require('handlebars-helpers');
 // view engine setup
 const exphbs = require('express-handlebars');
-
+// exphbs.registerHelper("equal", require("handlebars-helper-equal"));
 app.engine('hbs', exphbs({
   defaultLayout: "main",
   extname: ".hbs",
-  helpers: require("handlebars-helpers").helpers
+  helpers: require("handlebars-helpers")()
 }));
 app.set('view engine', 'hbs');
 // var helpers = require('handlebars-helpers')();
