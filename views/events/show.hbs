@@ -2,7 +2,10 @@
   <img src="{{event.coverImageUrl}}">
 </div>
 <div class="container">
-  <h1>{{event.eventName}}</h1>
+  <div class="event-header">
+    <h1>{{event.eventName}}</h1>
+    <a href="/events/{{event.id}}/edit" class="btn btn-secondary">Edit</a>
+  </div>
   <p class="helper-text"><span class="event-label">Public: {{# if event.listPublicly}}Yes{{else}}No{{/if}}</span></p>
   <p><span class="event-label">Date:</span>{{# if event.eventDate}} {{event.eventDate}}{{else}} TBD{{/if}}</h4>
   <p><span class="event-label">Organizer:</span> {{event.organizerName}}</p>
@@ -10,7 +13,7 @@
   <p><span class="event-label">Cost:</span> ${{event.costPerTicket}}</p>
   <p><span class="event-label">Min:</span> {{event.minimumAttendees}}</p>
   {{# if event.maximumAttendees}}<p><span class="event-label">Max:</span> {{event.maximumAttendees}}</p>{{/if}}
-  <form action="/events/{{event.id}}" method="post">
+  <form action="/events/{{event.id}}/join" method="post">
     <input type="hidden" name="attendeeUserId" class="form-control" id="attendee-user-id" value="{{user._id}}">
     <input type="hidden" name="reasonForLogin" class="form-control" id="reason-for-login" value="You must signup or login to join an event.">
     <input type="hidden" name="numberOfAttendees" class="form-control" id="number-of-attendees" value={{event.arrayOfAttendeeIds.length}}>

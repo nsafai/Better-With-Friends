@@ -42,8 +42,54 @@ router.post('/', auth.requireLogin, (req, res, next) => {
   });
 });
 
+
+// Events edit
+router.get('/:id/edit', auth.requireLogin, (req, res, next) => {
+  Event.findById(req.params.id, function(err, event) {
+    if (err) {
+      console.error(err)
+    };
+    res.render('events/edit', {
+      event: event
+    });
+  });
+});
+
+// Events update
+router.post('/:id', auth.requireLogin, (req, res, next) => {
+  // console.log(req.body);
+  // console.log(req.params.id);
+  let updatedEvent = new Event(req.body);
+
+  Event.findByIdAndUpdate(
+    req.params.id, {
+      $set: {
+        eventName: updatedEvent.eventName,
+        costPerTicket: updatedEvent.costPerTicket,
+        minimumAttendees: updatedEvent.minimumAttendees,
+        maximumAttendees: updatedEvent.maximumAttendees,
+        eventLocation: updatedEvent.eventLocation,
+        eventDate: updatedEvent.eventDate,
+        coverImageUrl: updatedEvent.coverImageUrl,
+        eventDescription: updatedEvent.eventDescription,
+        listPublicly: updatedEvent.listPublicly
+      }
+    },
+    function(err, event) {
+      if (err) {
+        console.error(err)
+      };
+      res.redirect('/events/' + req.params.id);
+    });
+
+  console.log("updated event details: " + updatedEvent);
+  // console.log("event that was found: " + event);
+
+});
+
 // Events show
 router.get('/:id', (req, res, next) => {
+
   Event.findById(req.params.id, function(err, event) {
     if (err) {
       console.error(err)
@@ -51,7 +97,9 @@ router.get('/:id', (req, res, next) => {
     // console.log(event);
     if (event.numberOfAttendees > 0) {
       User.find({
-        '_id': { $in: event.arrayOfAttendeeIds}
+        '_id': {
+          $in: event.arrayOfAttendeeIds
+        }
       }, function(err, attendees) {
         console.log(event.arrayOfAttendeeIds);
         console.log("attendees:" + attendees);
@@ -67,22 +115,10 @@ router.get('/:id', (req, res, next) => {
     }
   });
 });
-// Events edit
-router.get('/:id/edit', auth.requireLogin, (req, res, next) => {
-  Event.findById(req.params.id, function(err, event) {
-    if (err) {
-      console.error(err)
-    };
-    res.render('events/edit', {
-      event: event
-    });
-  });
-});
 
-// Events update
-router.post('/:id', auth.requireLogin, (req, res, next) => {
-  // console.log(req.params.id);
 
+// Events Join
+router.post('/:id/join', auth.requireLogin, (req, res, next) => {
   Event.findByIdAndUpdate(
     req.params.id, {
       $addToSet: {
@@ -102,5 +138,6 @@ router.post('/:id', auth.requireLogin, (req, res, next) => {
       res.redirect('/events/' + req.params.id);
     });
 });
+
 
 module.exports = router;
