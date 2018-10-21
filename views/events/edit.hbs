@@ -2,47 +2,51 @@
   <form action="/events/{{event.id}}" method="post" class="center_div">
     <h1>Edit Event</h1>
 
-    <div class="form-group">
-      <label for="event-title">The Idea</label><span class="required-star">*</span>
-      <input type="text" name="eventName" class="form-control" id="event-topic" placeholder="ex: New Year's Cruise" value="{{event.eventName}}" required>
-    </div>
-    <div class="form-row">
-      <div class="col">
-        <div class="label-star-div"><label for="event-cost">Cost per Person</label><span class="required-star">*</span></div>
-        <input type="number" name="costPerTicket" class="form-control" id="event-cost" placeholder="Amount ($)" value="{{event.costPerTicket}}" required>
+    {{#eq event.organizerUserId user._id}}
+      <div class="form-group">
+        <label for="event-title">The Idea</label><span class="required-star">*</span>
+        <input type="text" name="eventName" class="form-control" id="event-topic" placeholder="ex: New Year's Cruise" value="{{event.eventName}}" required>
       </div>
-      <div class="col">
-        <div class="label-star-div"><label for="event-minimum-attendees">Minimum # Attendees</label><span class="required-star">*</span></div>
-        <input type="number" name="minimumAttendees" class="form-control" id="event-min-attendees" placeholder="Min. #" value="{{event.minimumAttendees}}" required>
+      <div class="form-row">
+        <div class="col">
+          <div class="label-star-div"><label for="event-cost">Cost per Person</label><span class="required-star">*</span></div>
+          <input type="number" name="costPerTicket" class="form-control" id="event-cost" placeholder="Amount ($)" value="{{event.costPerTicket}}" required>
+        </div>
+        <div class="col">
+          <div class="label-star-div"><label for="event-minimum-attendees">Minimum # Attendees</label><span class="required-star">*</span></div>
+          <input type="number" name="minimumAttendees" class="form-control" id="event-min-attendees" placeholder="Min. #" value="{{event.minimumAttendees}}" required>
+        </div>
+        <div class="col">
+          <div class="label-star-div"><label for="event-maximum-attendees">Maximum # Attendees</label><span class="required-star"></span></div>
+          <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. #" value="{{event.maximumAttendees}}">
+        </div>
       </div>
-      <div class="col">
-        <div class="label-star-div"><label for="event-maximum-attendees">Maximum # Attendees</label><span class="required-star"></span></div>
-        <input type="number" name="maximumAttendees" class="form-control" id="event-max-attendees" placeholder="Max. #" value="{{event.maximumAttendees}}">
+      <div class="form-group">
+        <label for="event-location">Location</label><span class="required-star">*</span>
+        <input type="text" name="eventLocation" class="form-control" id="event-location" placeholder="Pier 39, San Francisco, CA" value="{{event.eventLocation}}" required>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="event-location">Location</label><span class="required-star">*</span>
-      <input type="text" name="eventLocation" class="form-control" id="event-location" placeholder="Pier 39, San Francisco, CA" value="{{event.eventLocation}}" required>
-    </div>
-    <div class="form-group">
-      <label for="event-date">Date</label>
-      <input type="date" name="eventDate" class="form-control" id="event-date" placeholder="Date" value="{{event.eventDate}}">
-    </div>
-    <div class="form-group">
-      <label for="event-image">Cover Image URL</label>
-      <input type="text" name="coverImageUrl" class="form-control" id="event-cover-image-url" placeholder="https://images.pexels.com/photos/573263/pexels-photo-573263.jpeg" value="{{event.coverImageUrl}}">
-    </div>
-    <div class="form-group">
-      <label for="event-date">Description</label>
-      <textarea rows="4" cols="50" name="eventDescription" class="form-control" id="event-description" placeholder="Write 2-3 sentences about the event.">{{event.eventDescription}}</textarea>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" name="listPublicly" {{# if event.listPublicly}}checked {{else}} {{/if}}"> Show my event publicly on Event Starter's /events page</label>
-    </div>
-    <!-- <input type="hidden" name="organizerName" class="form-control" id="event-organizer-name" value="{{user.name}}">
-    <input type="hidden" name="organizerUserId" class="form-control" id="event-organizer-user-id" value="{{user._id}}"> -->
-    <div class="text-left">
-      <button type="submit" class="btn btn-info">Update</button>
-    </div>
+      <div class="form-group">
+        <label for="event-date">Date</label>
+        <input type="date" name="eventDate" class="form-control" id="event-date" placeholder="Date" value="{{event.eventDate}}">
+      </div>
+      <div class="form-group">
+        <label for="event-image">Cover Image URL</label>
+        <input type="text" name="coverImageUrl" class="form-control" id="event-cover-image-url" placeholder="https://images.pexels.com/photos/573263/pexels-photo-573263.jpeg" value="{{event.coverImageUrl}}">
+      </div>
+      <div class="form-group">
+        <label for="event-date">Description</label>
+        <textarea rows="4" cols="50" name="eventDescription" class="form-control" id="event-description" placeholder="Write 2-3 sentences about the event.">{{event.eventDescription}}</textarea>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="listPublicly" {{# if event.listPublicly}}checked {{else}} {{/if}}> Show my event publicly on Event Starter's /events page</label>
+      </div>
+      <!-- <input type="hidden" name="organizerName" class="form-control" id="event-organizer-name" value="{{user.name}}">
+      <input type="hidden" name="organizerUserId" class="form-control" id="event-organizer-user-id" value="{{user._id}}"> -->
+      <div class="text-left">
+        <button type="submit" class="btn btn-info">Update</button>
+      </div>
+    {{else}}
+      <p>You must be the event organizer to edit the event. {{# if user}}<a href="/login">Log in here</p>.{{/if}}
+    {{/eq}}
   </form>
 </div>
