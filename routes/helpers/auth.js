@@ -8,7 +8,7 @@ exports.requireLogin = (req, res, next) => {
 
     // return res.redirect('/login');
     return res.render('login', {
-      senderUrl: req.originalUrl,
+      senderUrl: req.header('Referer'),
       reasonForLogin: req.body.reasonForLogin
     });
   }
