@@ -8,7 +8,7 @@
     {{#eq event.organizerUserId user._id}}<a href="/events/{{event.id}}/edit" class="btn btn-outline-info">Edit</a>{{/eq}}
   </div>
   <p class="helper-text"><span class="event-label">Public: {{# if event.listPublicly}}Yes{{else}}No{{/if}}</span></p>
-  <p><span class="event-label">Date:</span>{{# if event.eventDate}} {{event.eventDate}}{{else}} TBD{{/if}}</h4>
+  <p><span class="event-label">Date:</span>{{# if event.eventDate}} {{moment event.eventDate format="MMMM Do, YYYY"}}{{else}} TBD{{/if}}</h4>
   <p><span class="event-label">Organizer:</span> {{event.organizerName}}</p>
   <p><span class="event-label">Location:</span>{{# if event.eventLocation}} {{event.eventLocation}}{{else}} TBD{{/if}}</p>
   <p><span class="event-label">Cost:</span> ${{event.costPerTicket}}</p>
