@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 // set layout variables
 router.use(function(req, res, next) {
-  res.locals.title = "Better With Friends";
+  res.locals.title = "Better with Friends";
   res.locals.user = req.session.user;
 
   next();

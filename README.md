@@ -1,4 +1,4 @@
-# Better With Friends
+# Better with Friends
 
 ### Summary
 Crowdfunding for small events with Friends
