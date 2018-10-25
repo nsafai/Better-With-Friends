@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 var uniqueValidator = require('mongoose-unique-validator');
 
 const EventSchema = new Schema({
-  eventName: { type: String, required: true, unique: true },
+  eventName: { type: String, required: true },
   eventDate: { type: String },
   eventLocation: { type: String, required: true },
   costPerTicket: { type: Number, required: true },
@@ -14,8 +14,8 @@ const EventSchema = new Schema({
   listPublicly: { type: String },
   organizerName: { type: String },
   organizerUserId: { type: String, required: true },
-  arrayOfAttendeeIds: { type: Array },
-  numberOfAttendees: { type: Number, default: 0 }
+  arrayOfAttendeeIds: { type: Array }
+  // numberOfAttendees: { type: Number, default: 0 }
 });
 
 EventSchema.plugin(uniqueValidator);

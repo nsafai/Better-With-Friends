@@ -16,10 +16,11 @@ router.get('/', auth.requireLogin, (req, res, next) => {
   });
 });
 
-// GET: Users NEW
-router.get('/new', (req, res, next) => {
-  res.render('users/new');
-});
+// // GET: Users NEW
+// router.get('/new', (req, res, next) => {
+//
+//   res.render('users/new');
+// });
 
 // POST: creates a new user
 router.post('/', (req, res) => {

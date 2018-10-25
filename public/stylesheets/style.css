@@ -135,7 +135,7 @@ nav {
 }
 
 .navbar-brand {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Pacifico', cursive;
   font-weight:300;
 }
 
@@ -149,7 +149,7 @@ nav {
 }
 
 .hero-title h1 {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Pacifico', cursive;
   font-weight: 700;
   font-size: 6em;
 }
@@ -194,7 +194,7 @@ nav {
 *************/
 
 .icon-number {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Pacifico', cursive;
   color: #99a0a6;
   font-size:5em;
   /* margin-left:0.2em; */
@@ -206,7 +206,7 @@ nav {
 }
 
 .how-it-works-section-title {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Noto Serif';
   font-weight:600;
   font-size:3em;
   width:100%;
@@ -273,6 +273,9 @@ SHOW EVENT PAGE
   box-shadow: 0 1px 2px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.22);
 }
 
+.spacer {
+  margin: 1em 0;
+}
 .cover-image {
   /* Center and scale the image nicely */
   height: 100%;
@@ -326,6 +329,10 @@ div.helper-text {
 
 .label-star-div {
   display:flex;
+}
+
+#loginform{
+
 }
 
 /****************

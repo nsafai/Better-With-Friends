@@ -31,13 +31,16 @@ router.get('/new', (req, res, next) => {
 
 // Events create
 router.post('/', auth.requireLogin, (req, res, next) => {
+  // console.log(req);
+  console.log("TEST 1");
   let event = new Event(req.body);
-
+  console.log("TEST 2");
   event.save(function(err, event) {
     if (err) {
       console.error(err)
     };
-
+    console.log("TEST 3");
+    // console.log("inside events CREATE method");
     return res.redirect('/events');
   });
 });
@@ -95,7 +98,7 @@ router.get('/:id', (req, res, next) => {
       console.error(err)
     };
     // console.log(event);
-    if (event.numberOfAttendees > 0) {
+    if (event.arrayOfAttendeeIds.length > 0) {
       User.find({
         '_id': {
           $in: event.arrayOfAttendeeIds
@@ -119,13 +122,11 @@ router.get('/:id', (req, res, next) => {
 
 // Events Join
 router.post('/:id/join', auth.requireLogin, (req, res, next) => {
+  console.log(req);
   Event.findByIdAndUpdate(
     req.params.id, {
       $addToSet: {
         arrayOfAttendeeIds: req.body.attendeeUserId
-      },
-      $set: {
-        numberOfAttendees: req.body.numberOfAttendees
       }
     },
     function(err, event) {

@@ -1,5 +1,5 @@
 <div class="cover-image">
-  <img src="{{event.coverImageUrl}}">
+  {{# if event.coverImageUrl}}<img src="{{event.coverImageUrl}}">{{else}}<br>{{/if}}
 </div>
 <div class="container">
   <div class="event-header">
@@ -14,23 +14,27 @@
   <p><span class="event-label">Cost:</span> ${{event.costPerTicket}}</p>
   <p><span class="event-label">Min:</span> {{event.minimumAttendees}}</p>
   {{# if event.maximumAttendees}}<p><span class="event-label">Max:</span> {{event.maximumAttendees}}</p>{{/if}}
-  <form action="/events/{{event.id}}/join" method="post">
-    <input type="hidden" name="attendeeUserId" class="form-control" id="attendee-user-id" value="{{user._id}}">
-    <input type="hidden" name="reasonForLogin" class="form-control" id="reason-for-login" value="You must signup or login to join an event.">
-    <input type="hidden" name="numberOfAttendees" class="form-control" id="number-of-attendees" value={{event.arrayOfAttendeeIds.length}}>
-    <a href=""><button type="submit" class="btn btn-info btn-lg join-event-btn">Join (${{event.costPerTicket}})</button></a>
-  </form>
+
+  {{#contains event.arrayOfAttendeeIds user._id}}
+  <p href="" class="btn btn-outline-secondary btn-lg join-event-btn">You are In!</p>
+  {{else}}
+    <form action="/events/{{event.id}}/join" method="post">
+      <input type="hidden" name="attendeeUserId" class="form-control" id="attendee-user-id" value="{{user._id}}">
+      <input type="hidden" name="reasonForLogin" class="form-control" id="reason-for-login" value="You must signup or login to join an event.">
+      <a href=""><button type="submit" class="btn btn-info btn-lg join-event-btn">Join (${{event.costPerTicket}})</button></a>
+    </form>
+  {{/contains}}
   <hr>
-  {{# if event.numberOfAttendees}}
-    <h2>Who's Down</h2>
-    <p>{{event.numberOfAttendees}} person(s) are down for this event.</p>
+  {{# if event.arrayOfAttendeeIds.length}}
+    <h2>Join your friends</h2>
+    <p>{{event.arrayOfAttendeeIds.length}} person(s) are down for this event.</p>
     <ul>
       {{#each attendees as |attendee|}}
         <li>{{attendee.name}} <span class="helper-text">| @{{attendee.venmoHandle}}</span></li>
       {{/each}}
     </ul>
   {{else}}
-    <h2>Start the movement.</h2>
-    <p>The first follower is even more important than the leader.</p>
+    <h2>Join your friend.</h2>
+    <p>The first follower turns an idea into a movement.</p>
   {{/if}}
 </div>

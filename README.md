@@ -1,4 +1,4 @@
-# Event Starter
+# Better With Friends
 
 ### Summary
 Crowdfunding for small events with Friends

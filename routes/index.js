@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 // set layout variables
 router.use(function(req, res, next) {
-  res.locals.title = "Event Starter";
+  res.locals.title = "Better With Friends";
   res.locals.user = req.session.user;
 
   next();
@@ -16,13 +16,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/signup', (req, res, next) => {
-  // console.log(req);
+  console.log(req);
+  console.log("SIGNUP REFERRER IS: " + req.header('Referer'));
   res.render('users/new');
 });
 
 // login
 router.get('/login', (req, res, next) => {
-  res.render('login');
+  let referrer = req.header('Referer');
+  console.log(referrer);
+  res.render('login', {
+    destinationUrl: referrer
+  });
 });
 
 router.post('/login', (req, res, next) => {
@@ -35,15 +40,15 @@ router.post('/login', (req, res, next) => {
     } else {
       req.session.user = user;
       console.log(user);
-      console.log("req.body.senderUrl is: " + req.body.senderUrl);
-      // console.log(req.body.senderUrl);
+      console.log("req.body.destinationUrl is: " + req.body.destinationUrl);
+      // console.log(req.body.destinationUrl);
       // console.log("Login request from: " + originalUrl);
 
       // req.session.isAdmin = user.admin;
-      // return res.redirect(req.body.senderUrl);
-      if ((typeof req.body.senderUrl !== 'undefined') && (req.body.senderUrl !== 'null') && (req.body.senderUrl !== '')) {
+      // return res.redirect(req.body.destinationUrl);
+      if ((typeof req.body.destinationUrl !== 'undefined') && (req.body.destinationUrl !== 'null') && (req.body.destinationUrl !== '')) {
         console.log('inside if');
-        return res.redirect(req.body.senderUrl);
+        return res.redirect(req.body.destinationUrl);
       } else {
         console.log('inside else');
         return res.redirect('/');
